@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SalonFlow - לקוח + Back Office</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div>
+        <h1>SALONFLOW</h1>
+        <p>Inspired menu-style salon interface</p>
+      </div>
+      <div class="toolbar">
+        <button id="tabCustomer" class="active" type="button">ממשק לקוח</button>
+        <button id="tabOffice" type="button">Back Office</button>
+        <button id="loadDemoBtn" type="button">טען נתוני דמו</button>
+        <button id="clearDataBtn" type="button" class="danger">נקה נתונים</button>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero card">
+        <img src="assets/salon-hero.svg" alt="SalonFlow hero" />
+        <div>
+          <h2>SERVICE MENU</h2>
+          <p>עיצוב תפריט מינימליסטי ונקי בהשראת האתר ששלחת.</p>
+        </div>
+      </section>
+
+      <section id="customerPanel" class="panel active">
+        <div class="grid">
+          <section class="card wide menu-board">
+            <h3>HAIRCUTS</h3>
+            <ul>
+              <li><span>LADIES CUT</span><strong>$59+</strong></li>
+              <li><span>GIRLS CUT</span><strong>$46</strong></li>
+              <li><span>MEN CUT</span><strong>$29</strong></li>
+            </ul>
+            <h3>COLOR</h3>
+            <ul>
+              <li><span>SINGLE PROCESS COLOR</span><strong>$92+</strong></li>
+              <li><span>PARTIAL HIGHLIGHT</span><strong>$105+</strong></li>
+            </ul>
+            <h3>TREATMENTS</h3>
+            <ul>
+              <li><span>OLAPLEX TREATMENT</span><strong>$40+</strong></li>
+              <li><span>BROW TINT</span><strong>$17</strong></li>
+            </ul>
+          </section>
+
+          <section class="card">
+            <h2>תיאום תור עצמי</h2>
+            <form id="customerBookingForm">
+              <label>שם מלא <input id="customerName" required /></label>
+              <label>טלפון <input id="customerPhone" required /></label>
+              <label>שירות
+                <select id="customerService" required>
+                  <option value="">בחר שירות</option>
+                </select>
+              </label>
+              <label>תאריך ושעה מועדפים <input id="customerDate" type="datetime-local" required /></label>
+              <button type="submit">שלח בקשה לתיאום</button>
+            </form>
+            <div id="customerMessage" class="message"></div>
+          </section>
+
+          <section class="card">
+            <h2>הסטטוס שלי</h2>
+            <label>בדיקת תורים לפי טלפון <input id="customerTrackPhone" /></label>
+            <button id="customerTrackBtn" type="button">בדוק סטטוס</button>
+            <div id="customerAppointments"></div>
+          </section>
+        </div>
+      </section>
+
+      <section id="officePanel" class="panel">
+        <div class="grid">
+          <section class="card">
+            <h2>Back Office - יצירת תור</h2>
+            <form id="officeAppointmentForm">
+              <label>שם לקוח <input id="officeClientName" required /></label>
+              <label>טלפון <input id="officeClientPhone" required /></label>
+              <label>שירות
+                <select id="officeService" required>
+                  <option value="">בחר שירות</option>
+                </select>
+              </label>
+              <label>סטייליסט
+                <select id="officeStaff" required>
+                  <option value="">בחר איש צוות</option>
+                  <option>דנה</option>
+                  <option>רועי</option>
+                  <option>מיכל</option>
+                </select>
+              </label>
+              <label>תאריך ושעה <input id="officeDate" type="datetime-local" required /></label>
+              <button type="submit">הוסף תור מאושר</button>
+            </form>
+          </section>
+
+          <section class="card wide">
+            <h2>ניהול פגישות</h2>
+            <table>
+              <thead>
+                <tr>
+                  <th>לקוח</th>
+                  <th>שירות</th>
+                  <th>זמן</th>
+                  <th>סטייליסט</th>
+                  <th>סטטוס</th>
+                  <th>מחיר</th>
+                  <th>פעולות</th>
+                </tr>
+              </thead>
+              <tbody id="officeAppointmentsTable"></tbody>
+            </table>
+          </section>
+
+          <section class="card">
+            <h2>מחירון</h2>
+            <div id="priceListEditor"></div>
+            <button id="savePriceListBtn" type="button">שמור מחירון</button>
+          </section>
+
+          <section class="card">
+            <h2>חשבון לקוח</h2>
+            <label>טלפון לקוח <input id="invoicePhone" /></label>
+            <button id="generateInvoiceBtn" type="button">חשב חשבון</button>
+            <div id="invoiceResult"></div>
+          </section>
+
+          <section class="card">
+            <h2>מדדים</h2>
+            <div class="kpis">
+              <article><span id="kpiTotal">0</span><small>סה"כ תורים</small></article>
+              <article><span id="kpiPending">0</span><small>בהמתנה</small></article>
+              <article><span id="kpiRevenue">0 ₪</span><small>פוטנציאל הכנסה</small></article>
+            </div>
+          </section>
+        </div>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
