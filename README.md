@@ -6,9 +6,20 @@ SalonFlow MVP with two separated experiences:
 2. **Back Office interface** for salon staff to manage appointments, assign stylists, and control status.
 3. **Price list + client billing** so you can calculate a customer invoice from confirmed treatments.
 
-## Quick start
-1. Open `index.html`.
-2. Click **"טען נתוני דמו"** to preview all flows.
+## How can I see a preview?
+### Option A (fastest)
+```bash
+./preview.sh
+```
+Then open: `http://localhost:8080`
+
+### Option B (manual)
+```bash
+python3 -m http.server 8080
+```
+Then open: `http://localhost:8080`
+
+After opening the app, click **"טען נתוני דמו"** to instantly see sample appointments.
 
 ## Main capabilities
 - Client portal:
@@ -23,9 +34,3 @@ SalonFlow MVP with two separated experiences:
   - Persisted in localStorage.
 - Billing:
   - Calculate total invoice by client phone based on confirmed appointments.
-
-## Run with local server (optional)
-```bash
-python3 -m http.server 8080
-```
-Then open `http://localhost:8080`.
