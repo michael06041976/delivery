@@ -4,10 +4,14 @@ const PRICE_KEY = "salonflow_price_list_v1";
 const STAFF = ["דנה", "רועי", "מיכל"];
 
 const DEFAULT_PRICE_LIST = {
-  תספורת: 90,
-  צבע: 240,
-  פן: 120,
-  "טיפול משקם": 180,
+  "LADIES CUT": 59,
+  "GIRLS CUT": 46,
+  "MEN CUT": 29,
+  "BLOWOUT": 46,
+  "SINGLE PROCESS COLOR": 92,
+  "PARTIAL HIGHLIGHT": 105,
+  "OLAPLEX TREATMENT": 40,
+  "BROW TINT": 17,
 };
 
 const DEMO_APPOINTMENTS = [
@@ -15,7 +19,7 @@ const DEMO_APPOINTMENTS = [
     id: crypto.randomUUID(),
     clientName: "נועה כהן",
     clientPhone: "050-1112233",
-    serviceType: "תספורת",
+    serviceType: "LADIES CUT",
     staffMember: "דנה",
     date: `${new Date().toISOString().slice(0, 10)}T09:00`,
     status: "confirmed",
@@ -25,7 +29,7 @@ const DEMO_APPOINTMENTS = [
     id: crypto.randomUUID(),
     clientName: "עמית לוי",
     clientPhone: "050-2223344",
-    serviceType: "צבע",
+    serviceType: "SINGLE PROCESS COLOR",
     staffMember: "לא שובץ",
     date: `${new Date().toISOString().slice(0, 10)}T12:00`,
     status: "pending",
