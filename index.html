@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SalonFlow - ניהול מספרה</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>SalonFlow</h1>
+      <p>מערכת בסיסית לניהול תורים במספרה</p>
+    </header>
+
+    <main class="grid">
+      <section class="card">
+        <h2>קביעת תור חדש</h2>
+        <form id="appointmentForm">
+          <label>שם לקוח <input id="clientName" required /></label>
+          <label>טלפון <input id="clientPhone" required /></label>
+          <label>סוג שירות
+            <select id="serviceType" required>
+              <option value="">בחר שירות</option>
+              <option>תספורת</option>
+              <option>צבע</option>
+              <option>פן</option>
+              <option>טיפול משקם</option>
+            </select>
+          </label>
+          <label>סטייליסט
+            <select id="staffMember" required>
+              <option value="">בחר איש צוות</option>
+              <option>דנה</option>
+              <option>רועי</option>
+              <option>מיכל</option>
+            </select>
+          </label>
+          <label>תאריך ושעה <input id="appointmentDate" type="datetime-local" required /></label>
+          <button type="submit">הוסף תור</button>
+        </form>
+      </section>
+
+      <section class="card">
+        <h2>רשימת תורים</h2>
+        <p class="hint">המערכת בודקת חפיפות לפי סטייליסט וזמן מדויק.</p>
+        <ul id="appointmentsList"></ul>
+      </section>
+
+      <section class="card">
+        <h2>כרטיס לקוח</h2>
+        <label>חפש לפי טלפון <input id="searchPhone" /></label>
+        <button id="searchButton">חיפוש</button>
+        <div id="clientHistory"></div>
+      </section>
+
+      <section class="card">
+        <h2>דוח יומי</h2>
+        <button id="generateReport">הפק דוח להיום</button>
+        <div id="dailyReport"></div>
+      </section>
+    </main>
+
+    <footer>
+      <small>גרסת MVP מקומית (LocalStorage). אפשר להמשיך משלב זה לשרת, הודעות SMS וסליקה.</small>
+    </footer>
+
+    <script src="app.js"></script>
+  </body>
+</html>
